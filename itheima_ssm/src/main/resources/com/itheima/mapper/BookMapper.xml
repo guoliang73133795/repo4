@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.BookMapper">
+
+    <select id="findTotalCount" resultType="int" parameterType="int">
+        select count(0) from book
+        <where>
+            <if test="value != null">
+                category_id = #{value}
+            </if>
+        </where>
+    </select>
+
+    <!--
+        #{param1} : 代表方法的第一个参数
+        #{param2} : 代表方法的第二个参数
+        ......
+    -->
+    <select id="getData" resultType="book">
+        select * from book
+        <where>
+            <if test="param3 != null">
+                category_id = #{param3}
+            </if>
+        </where>
+        limit #{param1}, #{param2}
+    </select>
+</mapper>

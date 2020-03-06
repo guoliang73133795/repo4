@@ -40,6 +40,10 @@ public class BookController {
         modelAndView.addObject("pageBean", pageBean);
         modelAndView.addObject("categoryId", categoryId);
         modelAndView.setViewName("/book_list.jsp");
+//        遍历一下
+        for (int i = 0; i < 100; i++) {
+            System.out.println (i);
+        }
         return modelAndView;
     }
 }

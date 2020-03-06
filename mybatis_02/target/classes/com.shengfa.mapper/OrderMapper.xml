@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shengfa.mapper.OrderMapper">
+<resultMap id="newOrder" type="order" >
+    <id column="id" property="id"/>
+    <result column="ordertime" property="ordertime"/>
+    <result column="total" property="total"/>
+    <association property="user" javaType="user" fetchType="lazy" select="findUserById"
+                 column="uid"></association>
+</resultMap>
+    <select id="findOrders" resultMap="newOrder">
+        SELECT *,o.uid uid from orders o
+    </select>
+    
+    <select id="findUserById" resultType="user" parameterType="int" >
+        select * from user where id = #{uid}
+    </select>
+</mapper>

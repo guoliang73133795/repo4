@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>99乘法表</title>
+</head>
+<body>
+<style>
+    td{
+        border: 1px solid red;
+        font-size: 20px;
+        text-align: center;
+        background: aqua;
+    }
+</style>
+<script>
+
+   document.write("<table align='center'>")
+   document.write("<tr>");
+   for (var i = 1;i<=9;i++){
+       for(var j = 1;j<=i;j++) {
+           document.write("<td>");
+           document.write(j+"*"+i+"="+i*j+"&nbsp;&nbsp;&nbsp;");
+           document.write("</td>");
+       }
+       document.write("</tr>");
+   }
+   document.write("</table>")
+
+</script>
+</body>
+</html>

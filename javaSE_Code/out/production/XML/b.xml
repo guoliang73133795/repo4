@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id = "user" class = "cn.itheima.dtd.Student">
+        <property name = "name" value = "张三"/>
+        <property name = "age" value = "20"/>
+    </bean>
+
+</beans>

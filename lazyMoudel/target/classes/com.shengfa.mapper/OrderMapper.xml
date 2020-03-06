@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shengfa.mapper.OrderMapper">
+    <cache></cache>
+    <resultMap id="newOrder" type="order">
+        <id column="id" property="id"/>
+        <result column="ordertime" property="ordertime"/>
+        <result column="total" property="total"/>
+        <association property="user" javaType="user" fetchType="lazy" select="com.shengfa.mapper.UserMapper.findUserById" column="uid"/>
+        <!--fetchType="lazy"为标签中的查询语句开启延迟加载-->
+    </resultMap>
+
+    <select id="findOrders" resultMap="newOrder" useCache="true">
+        SELECT *,o.uid from orders o
+    </select>
+</mapper>
